@@ -53,32 +53,45 @@ void bench_level0(char *b, unsigned int s, unsigned int t, unsigned long r, char
 
   /* memory reads and writes */
   else if(strcmp(b, "memory") == 0){
+    int i;
 
-    if(strcmp(o, "calloc") == 0)
-      mem_calloc(s);
+    /* handle repetition option */
+    for (i=0; i < r; ++i) {
 
-    else if(strcmp(o, "read_ram") == 0)
-      mem_read_ram(r);
+      if ()
+      
+      if(strcmp(o, "calloc") == 0)
+        mem_calloc(s);
 
-    else if(strcmp(o, "write_contig") == 0)
-      mem_write_contig(s);
+      else if(strcmp(o, "read_ram") == 0) 
+      {
+        mem_read_ram(r); /* repetitions handled originally */
+        break;
+      }
+      else if(strcmp(o, "write_contig") == 0)
+        mem_write_contig(s);
 
-    else if(strcmp(o, "write_strided") == 0)
-      mem_write_strided(s, t);
+      else if(strcmp(o, "write_strided") == 0)
+        mem_write_strided(s, t);
 
-    else if(strcmp(o, "write_random") == 0)
-      mem_write_random(s);
+      else if(strcmp(o, "write_random") == 0)
+        mem_write_random(s);
 
-    else if(strcmp(o, "read_contig") == 0)
-      mem_read_contig(s);
+      else if(strcmp(o, "read_contig") == 0)
+        mem_read_contig(s);
 
-    else if(strcmp(o, "read_strided") == 0)
-      mem_read_strided(s, t);
+      else if(strcmp(o, "read_strided") == 0)
+        mem_read_strided(s, t);
 
-    else if(strcmp(o, "read_random") == 0)
-      mem_read_random(s);
+      else if(strcmp(o, "read_random") == 0)
+        mem_read_random(s);
 
-    else fprintf(stderr, "ERROR: check you are using a valid operation type...\n");
+      else 
+      {
+        fprintf(stderr, "ERROR: check you are using a valid operation type...\n");
+        break;
+      }
+    }
   }
 
   /* function calls*/
